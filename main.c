@@ -1,17 +1,17 @@
-#include <stdlib.h>
-#include <stdio.h>
+#include "main.h"
 
 /**
  * main - runs shell commands
- * @argc: int number of variables
- * @argv: Two dimensional array of command line arguments
+ * @ac: int number of variables
+ * @av: Two dimensional array of command line arguments
+ * @env: Enviroment variable.
  *
  * Description: Behaves just like a shell.
  * Return: 0 for success or anything else otherwise.
  */
-int main(int argc, char **argv)
+int main(int ac, char **av, char **env)
 {
-	printf("%c\n", argc + argv[0][0]);
-
+	if (ac == 1)
+		return (0);
 	return (EXIT_SUCCESS);
 }
