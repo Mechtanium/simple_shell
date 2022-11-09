@@ -17,5 +17,8 @@
  */
 int _putchar(char c);
 int _strcmp(char *str1, char *str2);
-int _strcpy(char *str1, char *str2, int s);
+int _strcpy(char **str1, char *str2, unsigned int s);
+char *_strcln(char *str, int c);
+void interactive(char **env);
+void non_interactive(char **env);
 #endif

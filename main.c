@@ -11,7 +11,12 @@
  */
 int main(int ac, char **av, char **env)
 {
+	av++;
 	if (ac == 1)
-		return (0);
+		interactive(env);
+	else
+		non_interactive(env);
+
 	return (EXIT_SUCCESS);
 }
+
