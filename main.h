@@ -6,6 +6,8 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <sys/types.h>
+#include <dirent.h>
 
 /**
  * _putchar - Don't delete _putchar, its used for testing
@@ -21,4 +23,6 @@ int _strcpy(char **str1, char *str2, unsigned int s);
 char *_strcln(char *str, int c);
 void interactive(char **env);
 void non_interactive(char **env);
+char *to_exe(char *cmd);
+void _realloc(char ***cmd_a, size_t *n);
 #endif

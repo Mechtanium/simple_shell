@@ -11,8 +11,9 @@
  */
 int main(int ac, char **av, char **env)
 {
-	av++;
-	if (ac == 1)
+	(void) ac;
+	(void) av;
+	if (isatty(1) == 1)
 		interactive(env);
 	else
 		non_interactive(env);

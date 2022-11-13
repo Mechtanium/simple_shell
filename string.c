@@ -83,3 +83,35 @@ char *_strcln(char *str, int c)
 
 	return (str_c);
 }
+
+/**
+ * to_exe - Converts a command to executable
+ * @cmd: String command to be parsed
+ *
+ * Description: Retrieves the last part of a executable address and returns it.
+ * Return: String name of executable.
+ */
+char *to_exe(char *cmd)
+{
+	char *c, *d;
+
+	if (cmd[0] != '/')
+	{
+		cmd = strtok(cmd, " ");
+		return (cmd);
+	}
+	else
+	{
+		c = strtok(cmd, "/");
+
+		while (c != NULL)
+		{
+			d = c;
+			c = strtok(NULL, "/");
+		}
+	}
+	d = strtok(d, " ");
+
+	return (d);
+}
+
