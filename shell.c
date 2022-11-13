@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * interactive - 
+ * interactive - Handles interactive mode
  * @av: Variables
  * @env: Environment
  *
@@ -10,67 +10,40 @@
  */
 void interactive(char **env)
 {
-	int chid, i = 0, c, j;
-	size_t n = 24;
-	char *cmd = malloc(sizeof(char) * n);
+	int c;
+	size_t n = 1;
+	char *cmd = malloc(sizeof(char) * n), *temp = malloc(sizeof(char) * n);
 	char **cmd_a = malloc(sizeof(char *) * n);
 
-	(void) env;
-	if (!cmd)
-		/* Change this to error message */
-		return;
-
 	do {
-		printf("$ ");
-		c = getline(&cmd, &n, stdin);
+		free(cmd);
+		free(cmd_a);
+		n = 24;
+		cmd = malloc(sizeof(char) * n);
+		temp = malloc(sizeof(char) * n);
+		cmd_a = malloc(sizeof(char *) * n);
+		c = 0;
 
-		if (c == -1)
+		if (!cmd || !cmd_a)
 		{
-			write(1, "Unable to read command input\n", 29);
+			write(2, "Out of memory exception\n", 24);
 			return;
 		}
 
-		_strcpy(&cmd, _strcln(cmd, c), c);
-
+		write(1, "$ ", 2);
+		c = getline(&cmd, &n, stdin);
+		if (c == -1)
+			return;
+		_strcln(&cmd);
 		if (_strcmp(cmd, "env"))
 		{
-			i = 0;
-			while (env[i])
-			{
-				j = 0;
-				while (env[i][j])
-					j++;
-
-				write(1, env[i], j);
-				write(1, "\n", 1);
-			}
+			builtin_env(env);
 		}
 		else if (!_strcmp(cmd, "exit") && !_strcmp(cmd, ""))
 		{
-			chid = fork();
-
-			if (chid == 0)
-			{
-				cmd = strtok(cmd, " ");
-
-				i = 0;
-				while ((void *) cmd)
-				{
-					cmd_a[i] = cmd;
-					i++;
-					cmd = strtok(NULL, " ");
-				}
-
-				c = execve(cmd_a[0], cmd_a, env);
-
-				if (c == -1)
-					write(1, "No such executable found\n", 24);
-			}
-			else
-				wait(&chid);
+			_exec(cmd, temp, cmd_a, n, c, env);
 		}
-	}
-	while (!_strcmp(cmd, "exit"));
+	} while (!_strcmp(cmd, "exit"));
 }
 
 /**
@@ -83,4 +56,3 @@ void non_interactive(char **env)
 {
 	printf("non-interactive, %s", *env);
 }
-

@@ -20,9 +20,11 @@
 int _putchar(char c);
 int _strcmp(char *str1, char *str2);
 int _strcpy(char **str1, char *str2, unsigned int s);
-char *_strcln(char *str, int c);
+void _strcln(char **str);
 void interactive(char **env);
 void non_interactive(char **env);
 char *to_exe(char *cmd);
 void _realloc(char ***cmd_a, size_t *n);
+void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env);
+void builtin_env(char **env);
 #endif

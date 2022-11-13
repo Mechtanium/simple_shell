@@ -62,28 +62,21 @@ int _strcpy(char **str1, char *str2, unsigned int s)
 
 /**
  * _strcln - Removes terminating newline characters
- * @str: String to be cleaned
- * @c: Character count of str including the the terminating \n
+ * @str: Pointer to string to be cleaned
  *
  * Description: Removes the \n at the end of getline results
  * Return: The string less the newline character.
  */
-char *_strcln(char *str, int c)
+void _strcln(char **str)
 {
 	int i = 0;
-	char *str_c;
+	char *str_c = *str;
 
-	c--;
-	str_c = malloc(sizeof(char) * c);
-	while (i < c)
-	{
-		str_c[i] = str[i];
-		i++;
-	}
+	while (str_c[i] != '\n')
+	i++;
 
-	return (str_c);
+	str_c[i] = '\0';
 }
-
 /**
  * to_exe - Converts a command to executable
  * @cmd: String command to be parsed
