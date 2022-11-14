@@ -24,5 +24,9 @@ int _strcpy(char *str1, char *str2, int s);
 int interactive(int argc, char **argv);
 void prompt(void);
 void interactive(char *cmd, char **cmd1);
+int _strlen(char *str);
+void *_realloc(void *ptr, unsigned int o_size, unsigned int n_size);
+void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t buff);
+ssize_t _getline(char **lineptr, size_t *n, FILE *line);
 
 #endif
