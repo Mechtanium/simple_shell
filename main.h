@@ -6,6 +6,9 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <stdarg.h>
 
 /**
  * _putchar - Don't delete _putchar, its used for testing
@@ -18,4 +21,8 @@
 int _putchar(char c);
 int _strcmp(char *str1, char *str2);
 int _strcpy(char *str1, char *str2, int s);
+int interactive(int argc, char **argv);
+void prompt(void);
+void interactive(char *cmd, char **cmd1);
+
 #endif
