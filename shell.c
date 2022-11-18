@@ -43,4 +43,8 @@ void shell(char **env, char **av)
 			_exec(cmd, temp, cmd_a, n, c, env, av);
 		}
 	} while (!_strcmp(cmd, "exit"));
+
+	free(temp);
+	free(cmd);
+	free(cmd_a);
 }
