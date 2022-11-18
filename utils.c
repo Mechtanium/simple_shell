@@ -73,7 +73,14 @@ char **av)
 
 		if (chid == 0)
 		{
-			c = execve(cmd_a[0], cmd_a, env);
+			if (cmd_a[0][0] != '/')
+            {
+                r = _strcat("/bin/", cmd_a[0]);
+                free(cmd_a[0]);
+                cmd_a[0] = r;
+            }
+            
+            c = execve(cmd_a[0], cmd_a, env);
 
 			if (c == -1)
 				write(1, "Execution failure\n", 17);
