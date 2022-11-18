@@ -108,3 +108,47 @@ char *to_exe(char *cmd)
 	return (d);
 }
 
+/**
+ * _strcat - jons strings
+ * @s1: First string
+ * @s2: Second string
+ *
+ * Description: Joins two strings
+ * Return: A poiter to the new joined string.
+ */
+char *_strcat(char *s1, char *s2)
+{
+        char *join;
+        unsigned int i, j;
+
+        i = 0;
+        while (s1 && s1[i])
+                i++;
+        j = 0;
+        while (s2 && s2[j])
+                j++;
+
+        i += j;
+        i++;
+        join = malloc(sizeof(char) * i);
+
+        i = 0;
+        while (s1 && s1[i])
+        {
+                join[i] = s1[i];
+                i++;
+        }
+
+        j = 0;
+        while (s2 && s2[j])
+        {
+                join[i + j] = s2[j];
+                j++;
+        }
+
+        i += j;
+        i++;
+        join[i] = '\0';
+
+        return (join);
+}
