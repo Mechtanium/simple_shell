@@ -91,7 +91,7 @@ char *_strcat(char *s1, char *s2)
 	char *join;
 	unsigned int i, j;
 	i = 0;
-	
+
 	while (s1 && s1[i])
 		i++;
 
@@ -101,7 +101,7 @@ char *_strcat(char *s1, char *s2)
 	i += j;
 	i++;
 	join = malloc(sizeof(char) * i);
-	
+
 	i = 0;
 	while (s1 && s1[i])
 	{
@@ -122,7 +122,7 @@ char *_strcat(char *s1, char *s2)
 }
 
 /**
- * _strlen - 
+ * _strlen - Counts string length
  * @str: String to check
  *
  * Description: Iteratively count characters
@@ -131,9 +131,10 @@ char *_strcat(char *s1, char *s2)
 unsigned int _strlen(char *str)
 {
 	unsigned int i = 0;
+
 	if (str)
 	{
-	while(str[i])
+	while (str[i])
 		i++;
 	}
 	return (i);
