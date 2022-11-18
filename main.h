@@ -27,4 +27,6 @@ char *to_exe(char *cmd);
 void _realloc(char ***cmd_a, size_t *n);
 void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env);
 void builtin_env(char **env);
+char *_strcat(char *s1, char *s2);
+
 #endif
