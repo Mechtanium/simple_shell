@@ -48,7 +48,10 @@ int _strcpy(char **str1, char *str2, unsigned int s)
 		j++;
 
 	if (j > s)
-		*str1 = malloc(sizeof(char) * j);
+    {
+        free(*str1);
+        *str1 = malloc(sizeof(char) * j);
+    }
 
 	while (str2[i])
 	{
@@ -91,7 +94,7 @@ char *_strcat(char *s1, char *s2)
 	char *join;
 	unsigned int i, j;
 
-	i = 0;
+    i = 0;
 	while (s1 && s1[i])
 		i++;
 
