@@ -50,7 +50,8 @@ void builtin_env(char **env)
  * Description: Prints the contents of the environment variable.
  * Return: void (Nothing)
  */
-void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env)
+void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env,
+    char **av)
 {
 	int i = 0, chid;
 
@@ -80,6 +81,7 @@ void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env)
 			wait(&chid);
 	}
 	else
-		write(2, "No such executable found\n", 25);
+		
+        write(2, "No such executable found\n", 25);
 }
 

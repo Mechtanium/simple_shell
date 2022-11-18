@@ -109,7 +109,7 @@ char *to_exe(char *cmd)
 }
 
 /**
- * _strcat - jons strings
+ * _strcat - joins strings
  * @s1: First string
  * @s2: Second string
  *
@@ -118,37 +118,49 @@ char *to_exe(char *cmd)
  */
 char *_strcat(char *s1, char *s2)
 {
-        char *join;
-        unsigned int i, j;
+char *join;
+unsigned int i, j;
+i = 0;
+while (s1 && s1[i])
+i++;
+j = 0;
+while (s2 && s2[j])
+j++;
+i += j;
+i++;
+join = malloc(sizeof(char) * i);
+i = 0;
+while (s1 && s1[i])
+{
+join[i] = s1[i];
+i++;
+}
+j = 0;
+while (s2 && s2[j])
+{
+join[i + j] = s2[j];
+j++;
+}
+i += j;
+i++;
+join[i] = '\0';
+return (join);
+}
 
-        i = 0;
-        while (s1 && s1[i])
-                i++;
-        j = 0;
-        while (s2 && s2[j])
-                j++;
-
-        i += j;
-        i++;
-        join = malloc(sizeof(char) * i);
-
-        i = 0;
-        while (s1 && s1[i])
-        {
-                join[i] = s1[i];
-                i++;
-        }
-
-        j = 0;
-        while (s2 && s2[j])
-        {
-                join[i + j] = s2[j];
-                j++;
-        }
-
-        i += j;
-        i++;
-        join[i] = '\0';
-
-        return (join);
+/**
+ * _strlen - 
+ * @str: String to check
+ *
+ * Description: Iteratively count characters
+ * Return: Length of the string.
+ */
+unsigned int _strlen(char *str)
+{
+unsigned int i = 0;
+if (str)
+{
+while(str[i])
+i++;
+}
+return (i);
 }

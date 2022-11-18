@@ -11,7 +11,8 @@
  */
 int main(int ac, char **av, char **env)
 {
-	shell(env, av);
+	(void) ac;
+    shell(env, av);
 
 	return (EXIT_SUCCESS);
 }
