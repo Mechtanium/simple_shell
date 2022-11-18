@@ -52,7 +52,7 @@ void builtin_env(char **env)
  * Return: void (Nothing)
  */
 void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env,
-    char **av)
+char **av)
 {
 	int i = 0, chid, j;
 
@@ -83,10 +83,10 @@ void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env,
 	}
 	else
 	{
-        j = _strlen(av[0]);
-        write(2, av[0], j);
-        write(2, ": No such file or directory\n", 28);
-    }
+		j = _strlen(av[0]);
+		write(2, av[0], j);
+		write(2, ": No such file or directory\n", 28);
+	}
 }
 
 /**
