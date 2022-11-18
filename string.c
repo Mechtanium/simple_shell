@@ -91,7 +91,7 @@ char *_strcat(char *s1, char *s2)
 	char *join;
 	unsigned int i, j;
 
-    i = 0;
+	i = 0;
 	while (s1 && s1[i])
 		i++;
 

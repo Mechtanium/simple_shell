@@ -25,8 +25,7 @@ void _strcln(char **str);
 void shell(char **env, char **av);
 char *to_exe(char *cmd);
 void _realloc(char ***cmd_a, size_t *n);
-void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env, 
-char **av);
+void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env, char **av);
 void builtin_env(char **env);
 char *_strcat(char *s1, char *s2);
 unsigned int _strlen(char *str);
