@@ -118,33 +118,37 @@ char *to_exe(char *cmd)
  */
 char *_strcat(char *s1, char *s2)
 {
-char *join;
-unsigned int i, j;
-i = 0;
-while (s1 && s1[i])
-i++;
-j = 0;
-while (s2 && s2[j])
-j++;
-i += j;
-i++;
-join = malloc(sizeof(char) * i);
-i = 0;
-while (s1 && s1[i])
-{
-join[i] = s1[i];
-i++;
-}
-j = 0;
-while (s2 && s2[j])
-{
-join[i + j] = s2[j];
-j++;
-}
-i += j;
-i++;
-join[i] = '\0';
-return (join);
+	char *join;
+	unsigned int i, j;
+	i = 0;
+	
+	while (s1 && s1[i])
+		i++;
+
+	j = 0;
+	while (s2 && s2[j])
+		j++;
+	i += j;
+	i++;
+	join = malloc(sizeof(char) * i);
+	
+	i = 0;
+	while (s1 && s1[i])
+	{
+		join[i] = s1[i];
+		i++;
+	}
+
+	j = 0;
+	while (s2 && s2[j])
+	{
+		join[i + j] = s2[j];
+		j++;
+	}
+	i += j;
+	i++;
+	join[i] = '\0';
+	return (join);
 }
 
 /**
@@ -156,11 +160,11 @@ return (join);
  */
 unsigned int _strlen(char *str)
 {
-unsigned int i = 0;
-if (str)
-{
-while(str[i])
-i++;
-}
-return (i);
+	unsigned int i = 0;
+	if (str)
+	{
+	while(str[i])
+		i++;
+	}
+	return (i);
 }
