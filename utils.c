@@ -53,7 +53,7 @@ void builtin_env(char **env)
 void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env,
     char **av)
 {
-	int i = 0, chid;
+	int i = 0, chid, j;
 
 	temp = strtok(cmd, " ");
 	while (temp)
@@ -81,7 +81,40 @@ void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env,
 			wait(&chid);
 	}
 	else
-		
-        write(2, "No such executable found\n", 25);
+	{
+        j = _strlen(av[0]);
+        write(2, av[0], j);
+        write(2, ": No such file or directory\n", 28);
+    }
 }
 
+/**
+ * to_exe - Converts a command to executable
+ * @cmd: String command to be parsed
+ *
+ * Description: Retrieves the last part of a executable address and returns it.
+ * Return: String name of executable.
+ */
+char *to_exe(char *cmd)
+{
+	char *c, *d;
+
+	if (cmd[0] != '/')
+	{
+		cmd = strtok(cmd, " ");
+		return (cmd);
+	}
+	else
+	{
+		c = strtok(cmd, "/");
+
+		while (c != NULL)
+		{
+			d = c;
+			c = strtok(NULL, "/");
+		}
+	}
+	d = strtok(d, " ");
+
+	return (d);
+}
