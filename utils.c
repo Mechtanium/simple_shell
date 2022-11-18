@@ -71,10 +71,9 @@ char **av)
     if (cmd_a[0][0] != '/')
     {
         r = _strcat("/bin/", cmd_a[0]);
-        free(cmd_a[0]);
         cmd_a[0] = r;
     }
-    
+
 	if (access(cmd_a[0], X_OK) == 0)
 	{
 		chid = fork();
