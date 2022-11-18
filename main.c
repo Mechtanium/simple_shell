@@ -12,7 +12,7 @@
 int main(int ac, char **av, char **env)
 {
 	(void) ac;
-    shell(env, av);
+	shell(env, av);
 
 	return (EXIT_SUCCESS);
 }
