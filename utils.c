@@ -54,7 +54,7 @@ void _exec(char *cmd, char *temp, char **cmd_a, size_t n, int c, char **env,
 char **av)
 {
 	int i = 0, chid, j;
-    char *r;
+	char *r;
 
 	temp = strtok(cmd, " ");
 	while (temp)
