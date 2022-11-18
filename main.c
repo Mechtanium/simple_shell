@@ -11,10 +11,7 @@
  */
 int main(int ac, char **av, char **env)
 {
-	if (ac < 2)
-		shell(env, NULL);
-	else
-		shell(env, av);
+	shell(env, av);
 
 	return (EXIT_SUCCESS);
 }
