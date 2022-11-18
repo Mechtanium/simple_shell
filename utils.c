@@ -47,7 +47,6 @@ void builtin_env(char **env)
  * @av: Parameter variable
  * @n: Just and int
  * @c: Just and int
- *
  * Description: Prints the contents of the environment variable.
  * Return: void (Nothing)
  */
@@ -68,11 +67,11 @@ char **av)
 		temp = strtok(NULL, " ");
 	}
 
-    if (cmd_a[0][0] != '/')
-    {
-        r = _strcat("/bin/", cmd_a[0]);
-        cmd_a[0] = r;
-    }
+	if (cmd_a[0][0] != '/')
+	{
+		r = _strcat("/bin/", cmd_a[0]);
+		cmd_a[0] = r;
+	}
 
 	if (access(cmd_a[0], X_OK) == 0)
 	{
